@@ -46,7 +46,7 @@
         <groovy-eclipse-compiler.version>2.8.0-01</groovy-eclipse-compiler.version>
         <java.version>1.7</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <slf4j.version>1.7.5</slf4j.version>
+        <slf4j.version>1.7.6</slf4j.version>
     </properties>
 
     <build>
@@ -187,7 +187,7 @@
                     <plugin>
                         <groupId>org.jacoco</groupId>
                         <artifactId>jacoco-maven-plugin</artifactId>
-                        <version>0.6.3.201306030806</version>
+                        <version>0.6.4.201312101107</version>
                         <executions>
                             <execution>
                                 <id>set argLine property with jacoco agent string</id>
