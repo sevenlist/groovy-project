@@ -50,36 +50,7 @@
 
     <properties>
         <groovy-eclipse-compiler.version>2.8.0-01</groovy-eclipse-compiler.version>
-        <java.version>1.7</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <build>
-        <resources>
-            <resource>
-                <filtering>true</filtering>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
-
-        <testResources>
-            <testResource>
-                <filtering>true</filtering>
-                <directory>src/test/resources</directory>
-            </testResource>
-        </testResources>
-
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
     <profiles>
         <profile>
