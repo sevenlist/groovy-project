@@ -1,16 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>groovy-project</artifactId>
     <packaging>pom</packaging>
-
-    <parent>
-        <groupId>com.sevenlist</groupId>
-        <artifactId>sevenlist-project</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        <relativePath/>
-    </parent>
 
     <dependencies>
         <dependency>
@@ -47,6 +41,13 @@
         </dependency>
     </dependencies>
 
+    <parent>
+        <groupId>com.sevenlist</groupId>
+        <artifactId>sevenlist-project</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+
     <properties>
         <groovy-eclipse-compiler.version>2.8.0-01</groovy-eclipse-compiler.version>
         <java.version>1.7</java.version>
@@ -56,15 +57,15 @@
     <build>
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
                 <filtering>true</filtering>
+                <directory>src/main/resources</directory>
             </resource>
         </resources>
 
         <testResources>
             <testResource>
-                <directory>src/test/resources</directory>
                 <filtering>true</filtering>
+                <directory>src/test/resources</directory>
             </testResource>
         </testResources>
 
@@ -112,10 +113,6 @@
                     <plugin>
                         <artifactId>maven-compiler-plugin</artifactId>
 
-                        <configuration>
-                            <compilerId>groovy-eclipse-compiler</compilerId>
-                        </configuration>
-
                         <dependencies>
                             <dependency>
                                 <groupId>org.codehaus.groovy</groupId>
@@ -129,6 +126,10 @@
                                 <version>2.1.8-01</version>
                             </dependency>
                         </dependencies>
+
+                        <configuration>
+                            <compilerId>groovy-eclipse-compiler</compilerId>
+                        </configuration>
                     </plugin>
 
                     <!-- src/main/java or src/test/java should not need to exist. -->
@@ -161,13 +162,11 @@
                                     <target>
                                         <mkdir dir="${project.build.outputDirectory}"/>
 
-                                        <taskdef name="groovyc"
-                                                 classname="org.codehaus.groovy.ant.Groovyc"
-                                                 classpathref="maven.compile.classpath"/>
+                                        <taskdef classname="org.codehaus.groovy.ant.Groovyc"
+                                                 classpathref="maven.compile.classpath" name="groovyc"/>
 
-                                        <groovyc srcdir="${project.build.sourceDirectory}"
-                                                 destdir="${project.build.outputDirectory}"
-                                                 indy="true"/>
+                                        <groovyc destdir="${project.build.outputDirectory}" indy="true"
+                                                 srcdir="${project.build.sourceDirectory}"/>
                                     </target>
                                 </configuration>
                             </execution>
@@ -182,13 +181,11 @@
                                     <target>
                                         <mkdir dir="${project.build.testOutputDirectory}"/>
 
-                                        <taskdef name="groovyc"
-                                                 classname="org.codehaus.groovy.ant.Groovyc"
-                                                 classpathref="maven.test.classpath"/>
+                                        <taskdef classname="org.codehaus.groovy.ant.Groovyc"
+                                                 classpathref="maven.test.classpath" name="groovyc"/>
 
-                                        <groovyc srcdir="${project.build.testSourceDirectory}"
-                                                 destdir="${project.build.testOutputDirectory}"
-                                                 indy="true"/>
+                                        <groovyc destdir="${project.build.testOutputDirectory}" indy="true"
+                                                 srcdir="${project.build.testSourceDirectory}"/>
                                     </target>
                                 </configuration>
                             </execution>
