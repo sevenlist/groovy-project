@@ -45,7 +45,7 @@
         <groupId>com.sevenlist</groupId>
         <artifactId>sevenlist-project</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath/>
+        <relativePath>../sevenlist-project/pom.xml</relativePath>
     </parent>
 
     <properties>
